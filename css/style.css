@@ -292,6 +292,14 @@ h1, h2, h3, h4, h5, h6,
 .smmms-navbar .nav-item.dropdown { position: relative; }
 .smmms-navbar .smmms-dropdown-menu,
 .smmms-navbar .dropdown-menu { z-index: 1060; }
+/* Remove navbar scroll behavior - navbar stays fixed, no scroll-based change */
+.smmms-navbar.sticky-top { top: 0 !important; margin-top: 0 !important; }
+/* More dropdown: show when open (Bootstrap .show) */
+.smmms-navbar .nav-item.dropdown .dropdown-menu { opacity: 0; visibility: hidden; transition: 0.2s ease; }
+.smmms-navbar .nav-item.dropdown.show .dropdown-menu { opacity: 1; visibility: visible; display: block; }
+@media (min-width: 992px) {
+    .smmms-navbar.sticky-top { margin-top: 0 !important; }
+}
 
 /* Hero - Auto slide carousel (faster interval + quicker transition) */
 .smmms-hero {
