@@ -189,6 +189,13 @@ h1, h2, h3, h4, h5, h6,
     background: var(--smmms-cream);
     color: var(--smmms-primary);
 }
+/* Navbar - proper alignment for More dropdown and all nav items */
+.smmms-navbar .navbar-collapse { align-items: center; }
+.smmms-navbar .navbar-nav { align-items: center; }
+.smmms-navbar .nav-item { display: flex; align-items: center; }
+.smmms-navbar .nav-item .nav-link { display: flex; align-items: center; padding: 0.75rem 1rem; }
+.smmms-navbar .nav-item.dropdown .dropdown-toggle { white-space: nowrap; }
+.smmms-navbar .dropdown-menu { margin-top: 0.25rem; min-width: 11rem; }
 
 /* Navbar on scroll - visible background and border */
 .smmms-navbar.smmms-navbar-scrolled {
@@ -197,11 +204,20 @@ h1, h2, h3, h4, h5, h6,
     border-bottom-color: rgba(200, 120, 30, 0.15);
 }
 
-/* Hero - Auto slide carousel */
+/* Hero - Auto slide carousel (faster interval + quicker transition) */
 .smmms-hero {
     position: relative;
     overflow: hidden;
 }
+#smmms-hero-carousel.carousel-fade .carousel-item { transition: opacity 0.35s ease-out; }
+#smmms-hero-carousel.carousel-fade .carousel-item-next.carousel-item-start,
+#smmms-hero-carousel.carousel-fade .carousel-item-prev.carousel-item-end { opacity: 1; }
+#smmms-hero-carousel.carousel-fade .carousel-item-next,
+#smmms-hero-carousel.carousel-fade .carousel-item-prev,
+#smmms-hero-carousel.carousel-fade .carousel-item.active { opacity: 0; }
+#smmms-hero-carousel.carousel-fade .carousel-item-next.carousel-item-start,
+#smmms-hero-carousel.carousel-fade .carousel-item-prev.carousel-item-end,
+#smmms-hero-carousel.carousel-fade .carousel-item.active { opacity: 1; }
 #smmms-hero-carousel {
     min-height: 85vh;
     min-height: min(85vh, 620px);
