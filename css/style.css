@@ -1175,6 +1175,8 @@ strong { color: #1a1a1a; font-weight: 600; }
 /* ========== Full responsiveness: PC, Laptop, Tablet, Mobile ========== */
 /* Mobile first: base is mobile, then tablet, then laptop/desktop */
 html { scroll-behavior: smooth; }
+/* Scroll targets: show section below fixed navbar when clicking More dropdown */
+#about, #academics, #team, #contact { scroll-margin-top: 5.5rem; }
 img { max-width: 100%; height: auto; }
 
 /* Container & spacing - all devices */
@@ -1198,10 +1200,14 @@ img { max-width: 100%; height: auto; }
     .smmms-topbar small.me-4 { margin-right: 0.5rem !important; }
 }
 
-/* Navbar - toggler and links stack on mobile/tablet */
-.smmms-navbar .navbar-collapse { max-height: 90vh; overflow-y: auto; }
+/* Navbar - no scrollbar on desktop; scroll only on mobile when menu open */
+.smmms-navbar .navbar-collapse { align-items: center; }
 .smmms-navbar .nav-item .nav-link { padding: 0.6rem 0.75rem; }
+@media (min-width: 992px) {
+    .smmms-navbar .navbar-collapse { overflow: visible !important; max-height: none !important; }
+}
 @media (max-width: 991.98px) {
+    .smmms-navbar .navbar-collapse { max-height: 90vh; overflow-y: auto; }
     .smmms-navbar .navbar-nav .nav-link { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.06); }
     .smmms-navbar .d-none.d-lg-flex { justify-content: flex-start; padding: 0.75rem 1rem; }
 }
