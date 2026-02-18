@@ -32,13 +32,23 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-warning" role="status" style="width: 3rem; height: 3rem;"></div>
+    <!-- Landing / Loading: logo circle + SMMMS text animation, 2s then home -->
+    <div id="smmms-landing" class="smmms-landing">
+        <div class="smmms-landing-inner">
+            <div class="smmms-landing-logo-wrap">
+                <div class="smmms-landing-logo-ring"></div>
+                <img src="assets/logo.png" alt="SMMMS" class="smmms-landing-logo">
+            </div>
+            <h1 class="smmms-landing-title">
+                <span class="smmms-landing-char" style="--i:0">S</span>
+                <span class="smmms-landing-char" style="--i:1">M</span>
+                <span class="smmms-landing-char" style="--i:2">M</span>
+                <span class="smmms-landing-char" style="--i:3">M</span>
+                <span class="smmms-landing-char" style="--i:4">S</span>
+            </h1>
+            <p class="smmms-landing-sub">School</p>
+        </div>
     </div>
-    <!-- Spinner End -->
-
 
     <!-- Topbar Start -->
     <div class="smmms-topbar container-fluid py-2 d-none d-lg-flex">
@@ -82,11 +92,11 @@
                         <a href="index.html#about" class="nav-item nav-link">About</a>
                         <a href="index.html#academics" class="nav-item nav-link">Academics</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
-                            <div class="dropdown-menu dropdown-menu-start m-0 border-0 shadow">
-                                <a href="index.html#team" class="dropdown-item">Our Team</a>
-                                <a href="index.html#contact" class="dropdown-item">Admission Enquiry</a>
-                            </div>
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarMoreDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" aria-haspopup="true">More</a>
+                            <ul class="dropdown-menu dropdown-menu-start m-0 border-0 shadow smmms-dropdown-menu" aria-labelledby="navbarMoreDropdown">
+                                <li><a href="index.html#team" class="dropdown-item">Our Team</a></li>
+                                <li><a href="index.html#contact" class="dropdown-item">Admission Enquiry</a></li>
+                            </ul>
                         </div>
                         <a href="index.html#contact" class="nav-item nav-link">Contact</a>
                     </div>
@@ -104,7 +114,7 @@
 
     <!-- Hero Section Start - Auto Slide Carousel -->
     <div class="container-fluid smmms-hero px-0 mb-5">
-        <div id="smmms-hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2800">
+        <div id="smmms-hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="smmms-hero-img d-block w-100" src="assets/hero.png" alt="SMMMS School - Sports Day 2024 - Certificate of Merit">

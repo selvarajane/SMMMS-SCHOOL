@@ -1,29 +1,19 @@
 (function ($) {
     "use strict";
 
-    // Spinner
-    var spinner = function () {
+    // Landing: logo + SMMMS animation, after 2s fade out and show home
+    var landing = document.getElementById('smmms-landing');
+    if (landing) {
         setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
-            }
-        }, 1);
-    };
-    spinner();
-    
-    
+            landing.classList.add('smmms-landing-done');
+            setTimeout(function () {
+                landing.style.display = 'none';
+            }, 520);
+        }, 2000);
+    }
+
     // Initiate the wowjs
     new WOW().init();
-
-
-    // Sticky Navbar - scroll: change nav bar color (solid background + shadow)
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 80) {
-            $('.smmms-navbar').addClass('smmms-navbar-scrolled');
-        } else {
-            $('.smmms-navbar').removeClass('smmms-navbar-scrolled');
-        }
-    });
 
 
     // Facts counter
