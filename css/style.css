@@ -2599,6 +2599,32 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 575.98px) {
     .smmms-map-wrap iframe { height: 280px !important; min-height: 280px; }
 }
+
+/* Mobile phones: let images auto-calc width & height (no hard crop) */
+@media (max-width: 575.98px) {
+    /* Academics & gallery cards */
+    .smmms-academics-img,
+    .smmms-section-academics .smmms-img-zoom img {
+        aspect-ratio: auto;
+        height: auto;
+    }
+
+    /* Infrastructure cards on home page */
+    .smmms-infra-card-img-wrap,
+    .smmms-infra-card-embed-wrap {
+        height: auto;
+        max-height: none;
+    }
+    .smmms-infra-card-img {
+        height: auto;
+    }
+
+    /* Team / method images */
+    .smmms-method-img {
+        aspect-ratio: auto;
+        height: auto;
+    }
+}
 @media (min-width: 769px) and (max-width: 991.98px) {
     .smmms-map-wrap iframe { height: 380px !important; }
 }
