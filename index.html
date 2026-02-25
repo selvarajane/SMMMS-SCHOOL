@@ -113,9 +113,9 @@
     <!-- Navbar End -->
 
 
-    <!-- Hero Section Start - Auto Slide Carousel -->
+    <!-- Hero Section Start - Static Hero (no auto slide) -->
     <div class="container-fluid smmms-hero px-0 mb-5" id="home">
-        <div id="smmms-hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div id="smmms-hero-carousel" class="carousel slide" data-bs-ride="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="smmms-hero-img d-block w-100" src="assets/hero-classroom.png" alt="SMMMS School - Engaged Students in Classroom">
@@ -198,7 +198,8 @@
                     <div class="smmms-school-name-location">MANALURPET ROAD, KILANAIKKARAI, TIRUVANNAMALAI</div>
                 </div>
                 <h1 class="smmms-hero-title mb-2">Excellence in Education, Pride in Achievement</h1>
-                <p class="smmms-hero-desc mb-3">Nursery &bull; Primary &bull; Higher Secondary</p>
+                <p class="smmms-hero-desc mb-1">Nursery &bull; Primary &bull; Higher Secondary</p>
+                <p class="smmms-hero-mobile-phone mb-3">Call us: <a href="tel:08925318902">089253 18902</a></p>
                 <a href="#about" class="btn btn-smmms-primary btn-sm px-4 py-2">Discover SMMMS</a>
             </div>
         </div>
@@ -908,6 +909,29 @@
     (function () {
         var nav = document.getElementById('smmmsNavbar');
         var navTop = document.getElementById('smmmsNavbarTop');
+
+        // On browser refresh, always return to home section
+        try {
+            var isReload = false;
+            if (performance && performance.getEntriesByType) {
+                var navEntry = performance.getEntriesByType('navigation')[0];
+                if (navEntry && navEntry.type === 'reload') {
+                    isReload = true;
+                }
+            } else if (performance && performance.navigation) {
+                // Older browsers
+                isReload = performance.navigation.type === 1;
+            }
+            if (isReload && window.location.hash && window.location.hash !== '#home') {
+                history.replaceState(null, '', 'index.html#home');
+                setTimeout(function () {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                }, 0);
+            }
+        } catch (e) {
+            // Ignore performance API errors
+        }
+
         function onScroll() {
             var y = window.scrollY || window.pageYOffset || 0;
             if (y > 80) {

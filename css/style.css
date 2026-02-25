@@ -626,6 +626,18 @@ a.back-to-top.btn-smmms-primary:hover {
 }
 .smmms-hero-mobile-caption .smmms-hero-title { font-size: 1.25rem; }
 .smmms-hero-mobile-caption .smmms-hero-desc { font-size: 0.9rem; }
+.smmms-hero-mobile-phone {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+}
+.smmms-hero-mobile-phone a {
+    color: #facc15;
+    text-decoration: none;
+    font-weight: 600;
+}
+.smmms-hero-mobile-phone a:hover {
+    text-decoration: underline;
+}
 @media (max-width: 767.98px) {
     #smmms-hero-carousel,
     #smmms-hero-carousel .carousel-item { min-height: 70vh; }
